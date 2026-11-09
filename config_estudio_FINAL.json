@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "fecha_ejecucion": "2026-03-29 14:57:20",
+    "random_seed": 42,
+    "notebook": "1._WTI_Preparacion_Datos.ipynb"
+  },
+  "fechas": {
+    "start_date": "2000-01-01",
+    "end_date": "2026-02-28",
+    "train_end": "2018-12-31",
+    "val_start": "2019-01-02",
+    "val_end": "2020-12-31",
+    "test_start": "2021-01-02"
+  },
+  "parametros": {
+    "percentiles": [
+      88,
+      90,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "percentile_primary": 95,
+    "volatility_window": 21,
+    "rolling_var_window": 252,
+    "clip_floor": 0.01
+  },
+  "umbrales_clean": {
+    "p88": 0.03058860795902846,
+    "p90": 0.03242720841915482,
+    "p92": 0.03521517177128643,
+    "p93": 0.036495096082968456,
+    "p94": 0.04035643193422788,
+    "p95": 0.04299581565948056,
+    "p96": 0.04528206019463324,
+    "p97": 0.04829558048568969,
+    "p98": 0.053162545793952215,
+    "p99": 0.05993497957210785
+  },
+  "umbrales_all": {
+    "p88": 0.03058860795902846,
+    "p90": 0.03242720841915482,
+    "p92": 0.03521517177128643,
+    "p93": 0.036495096082968456,
+    "p94": 0.04035643193422788,
+    "p95": 0.04299581565948056,
+    "p96": 0.04528206019463324,
+    "p97": 0.04829558048568969,
+    "p98": 0.053162545793952215,
+    "p99": 0.05993497957210785
+  },
+  "var_all": {
+    "global_95": -0.03830343782282206,
+    "train_95": -0.03793360876524384,
+    "val_95": -0.05031687731625754,
+    "test_95": -0.03725557792799761
+  },
+  "var_clean": {
+    "train_95": -0.03793360876524384,
+    "val_95": -0.049414338998902546,
+    "test_95": -0.03725557792799761
+  },
+  "contaminacion": {
+    "dias_bad_return": 2,
+    "dias_bad_vol21": 22,
+    "fecha_inicio": "2020-04-20",
+    "fecha_fin": "2020-05-19"
+  },
+  "estadisticas": {
+    "n_total": 6385,
+    "n_train": 4584,
+    "n_validation": 505,
+    "n_test": 1296,
+    "eventos_p95_clean": 296
+  },
+  "export": {
+    "columns_core": [
+      "wti_raw",
+      "wti",
+      "returns",
+      "vol21",
+      "vol21_clean",
+      "volatilidad_ratio21",
+      "ma_short",
+      "ma_long",
+      "ma_cross",
+      "ret_abs_lag1",
+      "ret_abs_lag5",
+      "hl_spread",
+      "co_spread",
+      "high",
+      "low",
+      "open",
+      "volumen",
+      "volumen_ratio_21",
+      "var_rolling_252",
+      "var_rolling_252_lag1",
+      "p95_vol21_rolling_252"
+    ],
+    "columns_labels": [
+      "is_extreme_clean",
+      "is_extreme_p90_clean",
+      "is_extreme_p95_clean",
+      "is_extreme_p99_clean",
+      "is_extreme_dynamic"
+    ],
+    "columns_flags": [
+      "bad_return",
+      "bad_vol21",
+      "outlier_zscore_clean",
+      "returns_zscore_clean"
+    ]
+  },
+  "paths": {
+    "dataset_all": "data/raw/wti_volatilidad_ALL.csv",
+    "dataset_clean": "data/processed/wti_volatilidad_CLEAN.csv",
+    "dataset_model_base": "data/processed/wti_volatilidad_MODEL_BASE.csv"
+  },
+  "nb02": {
+    "umbral_clasificacion": 0.04299581565948056,
+    "ventana_vol": 21,
+    "random_seed": 42,
+    "splits": {
+      "train_end": "2018-12-31",
+      "val_start": "2019-01-02",
+      "val_end": "2020-12-31",
+      "test_start": "2021-01-02"
+    },
+    "baseline_ingenuo": {
+      "evaluado_en": "validation",
+      "mejor_baseline": "B1 — |ret_lag1| > P95",
+      "f1_minimo": 0.4872,
+      "auc_minimo": 0.8241
+    },
+    "baseline_cuantitativo": {
+      "evaluado_en": "validation",
+      "nombre": "B5 — vol21_lag1/VaR > P95",
+      "f1_val": 0.7416,
+      "auc_val": 0.9805,
+      "f1_test": 0.5474,
+      "auc_test": 0.9983,
+      "nota": "Christoffersen (1998) — excedencia ajustada por riesgo"
+    },
+    "desbalanceo_validacion": {
+      "n_total": 505,
+      "n_excluidos": 22,
+      "n_validos": 483,
+      "n_extremos": 39,
+      "tasa_pct": 8.07,
+      "ratio": 11.4
+    },
+    "features": {
+      "FEATURES_UNI": [
+        "vol21_clean"
+      ],
+      "FEATURES_MULTI": [
+        "vol21_clean",
+        "returns",
+        "ret_abs_lag1",
+        "hl_spread",
+        "co_spread",
+        "var_rolling_252_lag1",
+        "ma_cross",
+        "volumen_ratio_21"
+      ],
+      "FEATURES_ABLATION": [
+        "returns",
+        "ret_abs_lag1",
+        "hl_spread",
+        "co_spread",
+        "var_rolling_252_lag1",
+        "ma_cross",
+        "volumen_ratio_21"
+      ],
+      "LOOKBACK": 21
+    },
+    "advertencias": [
+      "umbral_clasificacion viene de train CLEAN — no recalcular en NB02",
+      "normalizacion: fit en train, transform en val y test",
+      "SMOTE prohibido — usar class_weight por estructura temporal",
+      "validacion cruzada: usar TimeSeriesSplit, no KFold aleatorio",
+      "ma_short y ma_long son niveles de precio no estacionarios — usar ma_cross en FEATURES_MULTI",
+      "volatilidad_ratio21 excluida de FEATURES_MULTI: NaN post-bad_vol21 elimina 10/39 extremos en val (-25.6%) — disponible en CSV",
+      "var_rolling_252 sin lag no debe usarse como feature — solo var_rolling_252_lag1"
+    ]
+  },
+  "nb02_results": {
+    "fecha_ejecucion": "2026-03-29T16:15:10.139375",
+    "scope": "benchmark_cpu_canonico_h0_h3",
+    "status": "VALIDO",
+    "fuente": "NB02_CPU_CANONICAL",
+    "artifact_paths": {
+      "benchmark_predictions_csv": "results/predictions/nb02/benchmark_predictions_NB02.csv"
+    },
+    "modelos_evaluados": [
+      {
+        "nombre": "GARCH-GJR-GARCH",
+        "f1_test": 0.0,
+        "auc_test": 0.9874693305292674,
+        "auc_pr_test": 0.7296999489585654,
+        "precision": 0.0,
+        "recall": 0.0,
+        "beats_ingenuo": false,
+        "beats_cuantitativo": false
+      },
+      {
+        "nombre": "LSTM-Simple-Uni",
+        "f1_test": 0.782608695652174,
+        "auc_test": 0.9987238841405508,
+        "auc_pr_test": 0.9465396123102787,
+        "precision": 0.9473684210526315,
+        "recall": 0.6666666666666666,
+        "beats_ingenuo": true,
+        "beats_cuantitativo": true
+      },
+      {
+        "nombre": "BiDir-LSTM-Uni",
+        "f1_test": 0.7352941176470589,
+        "auc_test": 0.9962903608736943,
+        "auc_pr_test": 0.9401195228872049,
+        "precision": 0.6097560975609756,
+        "recall": 0.9259259259259259,
+        "beats_ingenuo": true,
+        "beats_cuantitativo": true
+      },
+      {
+        "nombre": "LSTM-Simple-Multi",
+        "f1_test": 0.3968253968253968,
+        "auc_test": 0.9892390221965244,
+        "auc_pr_test": 0.8481103198256694,
+        "precision": 0.25252525252525254,
+        "recall": 0.9259259259259259,
+        "beats_ingenuo": false,
+        "beats_cuantitativo": false
+      },
+      {
+        "nombre": "BiDir-LSTM-Multi",
+        "f1_test": 0.5977011494252874,
+        "auc_test": 0.9953101410169927,
+        "auc_pr_test": 0.8755458857501783,
+        "precision": 0.43333333333333335,
+        "recall": 0.9629629629629629,
+        "beats_ingenuo": true,
+        "beats_cuantitativo": true
+      }
+    ],
+    "ganador_hipotesis": {
+      "modelo": "LSTM-Simple-Uni",
+      "f1_test": 0.782608695652174,
+      "auc_test": 0.9987238841405508,
+      "auc_pr_test": 0.9465396123102787,
+      "nota": "Ganador del benchmark CPU canónico H0-H3. La capa GPU/Optuna se registra por separado en nb02_experiments."
+    }
+  },
+  "nb02_metadata": {
+    "pre_colab_fixes": {
+      "fecha_aplicacion": "2026-03-21",
+      "fix_ic1_class_weight_hibridos": true,
+      "fix_m4_cuda_assert": true,
+      "fix_texto_f1_conclusiones": true,
+      "descripcion": "Ver AUDIT-NB02-20260321 y NB02-PRECOLAB-FIXES-20260321"
+    },
+    "entorno": {
+      "run_mode": "canonical_cpu",
+      "cuda_visible_devices": "",
+      "tf_deterministic_ops": "1",
+      "pythonhashseed": "42",
+      "random_seed": 42,
+      "lookback": 21,
+      "n_features_multi": 8,
+      "umbral_clasificacion": 0.04299581565948056
+    },
+    "class_weights": {
+      "status": "documentado_no_recalculado_en_writer",
+      "nota": "NB02 CPU usa CLASS_WEIGHTS base_lstm y pesos locales de hibridos post-dropna (IC-1 fix); este writer no persiste valores numericos."
+    }
+  }
+}

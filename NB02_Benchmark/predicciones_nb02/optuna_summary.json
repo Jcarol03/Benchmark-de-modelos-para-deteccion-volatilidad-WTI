@@ -1,0 +1,68 @@
+{
+  "fecha": "2026-03-22T20:05",
+  "n_total": 100,
+  "resultados": {
+    "simple_uni": {
+      "best_pr_auc_val": 0.9867767691612244,
+      "best_params": {
+        "lstm_units": 128,
+        "dropout": 0.4,
+        "learning_rate": 0.001620424980720664,
+        "batch_size": 16,
+        "patience_es": 25
+      },
+      "f1_val": 0.9743589743589743,
+      "best_epoch": 38,
+      "best_thr_val": 0.95,
+      "n_trials": 20,
+      "elapsed_min": 15.8
+    },
+    "simple_multi": {
+      "best_pr_auc_val": 0.9987337589263916,
+      "best_params": {
+        "lstm_units": 128,
+        "dropout": 0.4,
+        "learning_rate": 0.0004524920251423452,
+        "batch_size": 32,
+        "patience_es": 25
+      },
+      "f1_val": 0.975,
+      "best_epoch": 2,
+      "best_thr_val": 0.68,
+      "n_trials": 20,
+      "elapsed_min": 11.0
+    },
+    "bidirectional_uni": {
+      "best_pr_auc_val": 0.9996740221977234,
+      "best_params": {
+        "lstm_units": 128,
+        "dropout": 0.1,
+        "learning_rate": 0.0022499450099113176,
+        "batch_size": 16,
+        "patience_es": 20,
+        "lstm_units_2_ratio": 0.75
+      },
+      "f1_val": 0.9873417721518988,
+      "best_epoch": 2,
+      "best_thr_val": 0.61,
+      "n_trials": 30,
+      "elapsed_min": 37.4
+    },
+    "bidirectional_multi": {
+      "best_pr_auc_val": 0.999040961265564,
+      "best_params": {
+        "lstm_units": 96,
+        "dropout": 0.2,
+        "learning_rate": 0.000421553316694912,
+        "batch_size": 32,
+        "patience_es": 15,
+        "lstm_units_2_ratio": 0.75
+      },
+      "f1_val": 0.975,
+      "best_epoch": 27,
+      "best_thr_val": 0.87,
+      "n_trials": 30,
+      "elapsed_min": 27.3
+    }
+  }
+}

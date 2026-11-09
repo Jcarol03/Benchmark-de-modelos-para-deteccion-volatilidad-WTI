@@ -1,0 +1,63 @@
+# =====================================================================
+# requirements.txt -- Proyecto WTI: Prediccion de Volatilidad
+# Entorno: Python 3.10+ (Google Colab)
+# Creado: 2026-03-25
+# =====================================================================
+#
+# pip install -r requirements.txt   (instala todo)
+#
+
+
+
+
+
+# -- NB01: Preparación de Datos (EDA) (actualizado 2026-03-29) --
+matplotlib-inline==0.2.1
+matplotlib-venn==1.1.2
+matplotlib==3.10.0
+numpy==2.0.2
+pandas-datareader==0.10.0
+pandas-gbq==0.30.0
+pandas-stubs==2.2.2.240909
+pandas==2.2.2
+scikit-learn==1.6.1
+scipy==1.16.3
+seaborn==0.13.2
+statsmodels==0.14.6
+yfinance==0.2.66
+# -- [END NB01]
+
+
+# -- NB03: Sentimiento FinBERT (NLP) (actualizado 2026-03-25) --
+gdeltdoc==1.5.0
+tokenizers==0.22.2
+torch==2.10.0+cu128
+torchao==0.10.0
+torchaudio==2.10.0+cu128
+torchcodec==0.10.0+cu128
+torchdata==0.11.0
+torchsummary==1.5.1
+torchtune==0.6.1
+torchvision==0.25.0+cu128
+transformers==5.0.0
+# -- [END NB03]
+
+
+
+
+
+
+
+
+
+# -- NB02: Benchmark de Modelos (ML/DL) (actualizado 2026-03-29) --
+arch==8.0.0
+imbalanced-learn==0.14.1
+tensorflow-datasets==4.9.9
+tensorflow-hub==0.16.1
+tensorflow-metadata==1.17.3
+tensorflow-probability==0.25.0
+tensorflow-text==2.19.0
+tensorflow==2.19.0
+tensorflow_decision_forests==1.12.0
+# -- [END NB02]

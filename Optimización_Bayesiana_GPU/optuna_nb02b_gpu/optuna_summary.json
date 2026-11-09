@@ -1,0 +1,70 @@
+{
+  "fecha": "2026-03-26T07:00",
+  "run_mode": "gpu_optuna",
+  "status": "PROVISIONAL",
+  "n_total": 100,
+  "resultados": {
+    "simple_uni": {
+      "best_pr_auc_val": 0.9977385997772217,
+      "best_params": {
+        "lstm_units": 128,
+        "dropout": 0.4,
+        "learning_rate": 0.004935115821561497,
+        "batch_size": 32,
+        "patience_es": 25
+      },
+      "f1_val": 0.9824561403508771,
+      "best_epoch": 46,
+      "best_thr_val": 0.69,
+      "n_trials": 20,
+      "elapsed_min": 28.8
+    },
+    "simple_multi": {
+      "best_pr_auc_val": 1.0,
+      "best_params": {
+        "lstm_units": 128,
+        "dropout": 0.3,
+        "learning_rate": 0.00023101454357164726,
+        "batch_size": 32,
+        "patience_es": 15
+      },
+      "f1_val": 1.0,
+      "best_epoch": 17,
+      "best_thr_val": 0.24,
+      "n_trials": 20,
+      "elapsed_min": 11.8
+    },
+    "bidirectional_uni": {
+      "best_pr_auc_val": 1.0,
+      "best_params": {
+        "lstm_units": 32,
+        "dropout": 0.1,
+        "learning_rate": 0.004926710526703188,
+        "batch_size": 16,
+        "patience_es": 25,
+        "lstm_units_2_ratio": 0.75
+      },
+      "f1_val": 1.0,
+      "best_epoch": 58,
+      "best_thr_val": 0.1,
+      "n_trials": 30,
+      "elapsed_min": 77.9
+    },
+    "bidirectional_multi": {
+      "best_pr_auc_val": 1.0,
+      "best_params": {
+        "lstm_units": 32,
+        "dropout": 0.1,
+        "learning_rate": 0.0003375589571206087,
+        "batch_size": 32,
+        "patience_es": 10,
+        "lstm_units_2_ratio": 0.75
+      },
+      "f1_val": 1.0,
+      "best_epoch": 4,
+      "best_thr_val": 0.07,
+      "n_trials": 30,
+      "elapsed_min": 32.0
+    }
+  }
+}
